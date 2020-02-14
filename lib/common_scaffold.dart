@@ -1053,7 +1053,7 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
                             crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 
-                lotuscard(context,"https://res.cloudinary.com/yuppiechef/image/upload/v1464626769/blog/yuppiechef/unnamed-5_ruzkhc.jpg","Fried Liver"),
+                lotuscard(context,"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500","Fried Liver"),
                 // lotuscard(context,"https://images.all-free-download.com/images/graphicthumb/food_picture_03_hd_pictures_167556.jpg","Chicken"),
                 // lotuscard(context,"https://cdn.guidingtech.com/imager/assets/189867/HD-Mouth-Watering-Food-Wallpapers-for-Desktop-10_4d470f76dc99e18ad75087b1b8410ea9.jpg?1573743473","Seafood"),
                 // lotuscard(context,"https://i.pinimg.com/originals/a2/c5/ab/a2c5ab8f37a99b3ce16cc0921ec8ac50.jpg","Burger"),
