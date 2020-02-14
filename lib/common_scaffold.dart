@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sidenav/base/base.dart';
 import 'package:flutter_chips_input/flutter_chips_input.dart';
+import 'package:sidenav/pages/register_step_1.dart';
 
-class MenuDashboard extends StatefulWidget {
+class CommonScaffold extends StatefulWidget {
   @override
-  _MenuDashboardState createState() => _MenuDashboardState();
+  _CommonScaffoldState createState() => _CommonScaffoldState();
 }
 
-class _MenuDashboardState extends State<MenuDashboard> with TickerProviderStateMixin {
+class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStateMixin {
   bool isCollapsed = true;
   bool collapseFromLeft = true;
   double screenWidth,screenHeight;
@@ -68,11 +69,177 @@ class _MenuDashboardState extends State<MenuDashboard> with TickerProviderStateM
       backgroundColor: mainColor,
       body: Stack(
         children: <Widget>[
-          lotusmenu(context),
+          lotusguestmenu(context),
           dashboard(context),
         ],
       ),
       
+    );
+  }
+
+    Widget lotusguestmenu(context){
+    return SlideTransition(
+        position: _slideAnimation,
+        child: ScaleTransition(
+          scale: _menuScaleAnimation,
+          child: Padding(
+          padding: const EdgeInsets.only(left:16.0),
+          child: Align(
+               alignment: Alignment.centerLeft,
+                child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment:MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                Stack(
+                  children: <Widget>[
+
+                     Container(
+                                      height: screenHeight/5,
+                                      width: screenWidth/1.8,
+                                      child: FittedBox(
+                                           child: new FloatingActionButton(
+                                          heroTag: "btn1",
+                                          elevation: 5.0,
+                                          backgroundColor: mainColor,
+                                          onPressed: (){},
+                                          child:  Padding(
+                                            padding: const EdgeInsets.all(3.0),
+                                            child: new Container(
+             width: screenHeight/9,
+             height: screenHeight/9,
+             child:
+                new Image.asset(Base.logo),
+           ),
+                                          ),
+                                      ),
+                                    )
+                  ),
+                 Container(
+      margin: EdgeInsets.only(top:screenHeight/6),
+      width: screenWidth/1.8,
+        child: Material(
+        color: Colors.white,
+        elevation: 20.0,
+        shadowColor: Color(0x802196F3),
+        borderRadius: BorderRadius.circular(5.0),
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Column(
+            children: <Widget>[
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                        Align(
+                          alignment: Alignment.center,
+                                          child: Text(
+                        "Guest",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold
+                        ),
+                        ),
+                    ),
+                  ],
+              ),
+              Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Icon(Icons.location_on,color:mainColor,),
+                    Text("London, England"),
+                  ],
+              ),
+            ],
+          ),
+        ),
+        )),
+
+                  ],
+                ),
+               
+                 SizedBox(
+                   height: 10.0,
+                 ),
+                 Container(
+                  height: screenHeight/20,
+    
+                  child: FlatButton.icon(
+                     onPressed:() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => RegisterStep1()),
+                        );
+                      }, 
+                     icon: Icon(FontAwesomeIcons.userPlus,color: Colors.blueAccent,size: 20.0,), 
+                     label: Text("Create Account",style: TextStyle(color: white,fontSize: 15.0),)
+                     ),
+                ),
+                Container(
+                  width: screenWidth/1.8,
+                  child: Divider(
+                    color: Colors.black38,
+                  ),
+                ),
+                Container(
+                  height: screenHeight/22,
+                  child: FlatButton.icon(
+                     onPressed: (){}, 
+                     icon: Icon(FontAwesomeIcons.lock,color: Colors.blueAccent,size: 20.0,), 
+                     label: Text("Login",style: TextStyle(color: white,fontSize: 15.0),)
+                     ),
+                ),
+                Container(
+                  width: screenWidth/1.8,
+                  child: Divider(
+                    color: Colors.black38,
+                  ),
+                ),
+                Container(
+                  height: screenHeight/16,
+                  width: screenWidth/1.8,
+                  child: RaisedButton.icon(
+                    elevation: 0.0,
+                    color: Colors.blue,
+                    onPressed: (){},
+                    icon: Icon(FontAwesomeIcons.facebook,color: white,), 
+                    label: Text("Sign in with Facebook",style: TextStyle(color: white),)
+                    )
+                )
+                ,
+                SizedBox(height: 10.0,),
+                Container(
+                  height: screenHeight/16,
+                  width: screenWidth/1.8,
+                  child: RaisedButton.icon(
+                    elevation: 0.0,
+                    color: Colors.red,
+                    onPressed: (){},
+                    icon: Icon(FontAwesomeIcons.googlePlus,color: white,), 
+                    label: Text("Sign in with Google+",style: TextStyle(color: white),)
+                    )
+                )
+                ,
+                SizedBox(height: 10.0,),
+                Container(
+                  width: screenWidth/1.8,
+                  height: screenHeight/16,
+                  child: RaisedButton.icon(
+                    elevation: 0.0,
+                    color: coolBlue,
+                    onPressed: (){},
+                    icon: Icon(FontAwesomeIcons.twitter,color: white,), 
+                    label: Text("Sign in with Twitter",style: TextStyle(color: white),)
+                    )
+                )
+                ,
+               
+                SizedBox(height: 10.0,),
+              ],
+              ),
+          ),
+      ),
+        ),
     );
   }
 
@@ -98,6 +265,7 @@ class _MenuDashboardState extends State<MenuDashboard> with TickerProviderStateM
                                       width: screenWidth/1.8,
                                       child: FittedBox(
                                            child: new FloatingActionButton(
+                                          heroTag: "btn2",
                                           elevation: 5.0,
                                           backgroundColor: white,
                                           onPressed: (){},
@@ -494,6 +662,7 @@ class _MenuDashboardState extends State<MenuDashboard> with TickerProviderStateM
                         Padding(
                           padding: const EdgeInsets.all(2.0),
                           child: FloatingActionButton(
+                            heroTag: "btn3",
                             backgroundColor: mainColor,
                             onPressed: (){},
                             elevation: 0.0,
@@ -515,6 +684,7 @@ class _MenuDashboardState extends State<MenuDashboard> with TickerProviderStateM
                                       height: screenHeight/3,
                                       child: FittedBox(
                                            child: new FloatingActionButton(
+                                          heroTag: "btn4",
                                           elevation: 0.0,
                                           backgroundColor: mainColor,
                                           onPressed: (){},
@@ -715,6 +885,7 @@ class _MenuDashboardState extends State<MenuDashboard> with TickerProviderStateM
                           Container(
                             height: screenHeight/15,
                             child: FloatingActionButton(
+                              heroTag: "btn5",
                               elevation: 0.0,
                               onPressed: (){},child:Icon(Icons.bubble_chart,color: Colors.white,)))
                         ],
@@ -861,24 +1032,25 @@ class _MenuDashboardState extends State<MenuDashboard> with TickerProviderStateM
         //  left:isCollapsed ? 0 : -0.4 * screenWidth,
           child: ScaleTransition(
             scale: _scaleAnimation,
+            //Hero targeted here
                       child: Material(
         animationDuration: duration, 
         borderRadius: BorderRadius.all(Radius.circular(20)),
         elevation: 8.0,
         color: mainColor,
         child: SafeArea(
-                  child: Stack(
-                                      children:[ 
+                    child: Stack(
+                                          children:[ 
 
-                                        Padding(
-                                          padding: EdgeInsets.only(top: screenHeight/9.5),
-                                          child: SingleChildScrollView(
-                      scrollDirection: Axis.vertical,
-                      physics: ClampingScrollPhysics(),
-                                          child: Container(
-                        padding: EdgeInsets.only(left:16,right:16,top:0.0),
-                        child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                                            Padding(
+                      padding: EdgeInsets.only(top: screenHeight/9.5),
+                      child: SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          physics: ClampingScrollPhysics(),
+                      child: Container(
+                            padding: EdgeInsets.only(left:16,right:16,top:0.0),
+                            child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 
                 lotuscard(context,"https://res.cloudinary.com/yuppiechef/image/upload/v1464626769/blog/yuppiechef/unnamed-5_ruzkhc.jpg","Fried Liver"),
@@ -888,17 +1060,17 @@ class _MenuDashboardState extends State<MenuDashboard> with TickerProviderStateM
                 // lotuscard(context,"https://i.pinimg.com/originals/a2/c5/ab/a2c5ab8f37a99b3ce16cc0921ec8ac50.jpg","Cake"),
                 lotususercard(context,"https://i.pinimg.com/originals/a2/c5/ab/a2c5ab8f37a99b3ce16cc0921ec8ac50.jpg","John Doe"),
                 Row(
-                  children: <Widget>[
-                    lotususerchip(context),
-                    SizedBox(width: 9.0,),
-                    lotuscolorchip(context, mainColor, "Confirmed"),
-                    SizedBox(width: 9.0,),
-                    lotuscolorchip(context, Colors.red, "Pending"),
-                    SizedBox(width: 9.0,),
-                    lotuscolorchip(context, coolBlue, "View"),
-                    
+                    children: <Widget>[
+                        lotususerchip(context),
+                        SizedBox(width: 9.0,),
+                        lotuscolorchip(context, mainColor, "Confirmed"),
+                        SizedBox(width: 9.0,),
+                        lotuscolorchip(context, Colors.red, "Pending"),
+                        SizedBox(width: 9.0,),
+                        lotuscolorchip(context, coolBlue, "View"),
+                        
 
-                  ],
+                    ],
                 ),
                 SizedBox(height: 10.0,),
 
@@ -906,21 +1078,21 @@ class _MenuDashboardState extends State<MenuDashboard> with TickerProviderStateM
                 
 
                 SizedBox(
-                      height: 20,
+                          height: 20,
                 ),
                 Text("Menu Items",style: TextStyle(color: Colors.white,fontSize: 20),),
                 ListView.separated(
                  physics: NeverScrollableScrollPhysics(),
                  shrinkWrap: true,
-                      itemBuilder: (context,index){
-                      return ListTile(
-                        title: Text("Cream Roll"),
-                        subtitle: Text("booking"),
-                        trailing: Text("200"),
-                      );
+                          itemBuilder: (context,index){
+                          return ListTile(
+                            title: Text("Cream Roll"),
+                            subtitle: Text("booking"),
+                            trailing: Text("200"),
+                          );
                 }, 
                 separatorBuilder: (context,index){
-                       return Divider(height: 16);
+                           return Divider(height: 16);
                 },
                  itemCount: 10
                 )
@@ -929,17 +1101,17 @@ class _MenuDashboardState extends State<MenuDashboard> with TickerProviderStateM
 
               ],
               ),
-                      ),
+                          ),
+                        ),
+                                            ),
+                                             lotusheader(context),
+                                             lotusbottom(context)
+                                          ]
                     ),
-                                        ),
-                                         lotusheader(context),
-                                         lotusbottom(context)
-                                      ]
                   ),
         ),
 
       ),
-          ),
     );
 
   }
