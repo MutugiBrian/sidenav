@@ -1041,82 +1041,174 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
                         physics: ClampingScrollPhysics(),
                                             child:Container(
                           padding: EdgeInsets.all(16.0),
-                          color: white,
-                          child: Material(
-                            elevation: 10.0,
-                                              color: white,
-                                              shadowColor: shadowBlue,
-                                                      child: Column(
+                          // color: white,
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                
-                TextFormField(
-                              // initialValue: userdetails["username"],
-                                decoration: InputDecoration(
-                                labelText: 'FirstName*',
-                                hintText: "Enter Username",
-                                prefixIcon: Icon(Icons.person,color: Colors.blue,)
-                                ),
-                                validator: (value) {
-                                if (value.length < 3) {
-                                return "Please enter a valid firstname.";
-                                }
-                                },
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: TextField(
+                        autofocus: false,
+                        style: TextStyle(fontSize: 18.0, color: Colors.black),
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          prefixIcon: Icon(Icons.person,size: 20.0,color: mainColor,),
+                          hintText: 'Username',
+                          // contentPadding:
+                          //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(25.7),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(25.7),
+                          ),
+                        ),
+                      ),
                 ),
-                TextFormField(
-                              // initialValue: userdetails["username"],
-                                decoration: InputDecoration(
-                                labelText: 'LastName*',
-                                hintText: "Enter Lastname",
-                                prefixIcon: Icon(Icons.person,color: Colors.blue,)
-                                ),
-                                validator: (value) {
-                                if (value.length < 3) {
-                                return "Please enter a valid lastname.";
-                                }
-                                },
+                SizedBox(
+                  height: 10.0,
                 ),
-                TextFormField(
-                              // initialValue: userdetails["username"],
-                                decoration: InputDecoration(
-                                labelText: 'Email*',
-                                hintText: "Enter Email",
-                                prefixIcon: Icon(Icons.person,color: Colors.blue,)
-                                ),
-                                validator: (value) {
-                                if (value.length < 3) {
-                                return "Please enter a valid email.";
-                                }
-                                },
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: TextField(
+                        autofocus: false,
+                        style: TextStyle(fontSize: 18.0, color: Colors.black),
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          prefixIcon: Icon(Icons.person,size: 20.0,color: mainColor,),
+                          hintText: 'lastname',
+                          // contentPadding:
+                          //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(25.7),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(25.7),
+                          ),
+                        ),
+                      ),
                 ),
-                TextFormField(
-                              // initialValue: userdetails["username"],
-                                decoration: InputDecoration(
-                                labelText: 'Phone Number',
-                                hintText: "Enter Number",
-                                prefixIcon: Icon(Icons.person,color: Colors.blue,)
-                                ),
-                                validator: (value) {
-                                if (value.length < 3) {
-                                return "Please enter a valid number.";
-                                }
-                                },
+                SizedBox(
+                  height: 10.0,
                 ),
-                TextFormField(
-                              // initialValue: userdetails["username"],
-                                decoration: InputDecoration(
-                                labelText: 'Password',
-                                hintText: "Enter Password",
-                                prefixIcon: Icon(Icons.person,color: Colors.blue,)
-                                ),
-                                validator: (value) {
-                                if (value.length < 3) {
-                                return "Please enter a valid password";
-                                }
-                                },
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: TextField(
+                        autofocus: false,
+                        style: TextStyle(fontSize: 18.0, color: Colors.black),
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          prefixIcon: Icon(Icons.email,size: 20.0,color: mainColor,),
+                          hintText: 'Email',
+                          // contentPadding:
+                          //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(25.7),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(25.7),
+                          ),
+                        ),
+                      ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: TextField(
+                        autofocus: false,
+                        style: TextStyle(fontSize: 18.0, color: Colors.black),
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          prefixIcon: Icon(Icons.phone,size: 20.0,color: mainColor,),
+                          hintText: 'Phone',
+                          // contentPadding:
+                          //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(25.7),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(25.7),
+                          ),
+                        ),
+                      ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: TextField(
+                        autofocus: false,
+                        style: TextStyle(fontSize: 18.0, color: Colors.black),
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          prefixIcon: Icon(Icons.lock,size: 20.0,color: mainColor,),
+                          hintText: 'Password',
+                          // contentPadding:
+                          //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(25.7),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(25.7),
+                          ),
+                        ),
+                      ),
                 ),
 
                 SizedBox(height: 10.0,),
+                Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: Container(
+              width: screenWidth/1.3,
+              child: Row(
+                children: <Widget>[
+                  Checkbox(
+                    value:true
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      'I agree to the Terms of Services',
+                      overflow: TextOverflow.ellipsis,
+    maxLines: 5,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 10.0,),
+          FloatingActionButton(
+            onPressed: (){},
+            child: Row(
+              children: <Widget>[
+                  Icon(Icons.done),
+                  Text("Done")
+              ],
+              ),
+            ),
+
+
+          
+          
 
                 
                 
@@ -1145,7 +1237,6 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
 
               ],
               ),
-                          ),
                         ),
                     ),
                                           ),
