@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sidenav/menu_dashboard.dart';
+import 'package:sidenav/base/base.dart';
+import 'package:sidenav/common_scaffold.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,11 +9,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Lotus Widgets',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: mainColor
       ),
-      home: MenuDashboard()
+      home: CommonScaffold()
     );
   }
 }
