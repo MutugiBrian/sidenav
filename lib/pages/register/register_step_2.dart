@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sidenav/base/base.dart';
 import 'package:flutter_chips_input/flutter_chips_input.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:sidenav/pages/register/register_step_2.dart';
 
-class RegisterStep1 extends StatefulWidget {
+class RegisterStep2 extends StatefulWidget {
   @override
-  _RegisterStep1State createState() => _RegisterStep1State();
+  _RegisterStep2State createState() => _RegisterStep2State();
 }
 
-class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateMixin {
+class _RegisterStep2State extends State<RegisterStep2> with TickerProviderStateMixin {
   bool isCollapsed = true;
   bool collapseFromLeft = true;
   double screenWidth,screenHeight;
@@ -267,12 +269,13 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
                                             child: new Container(
              width: screenHeight/9,
              height: screenHeight/9,
+             
              decoration: new BoxDecoration(
                color: mainColor,
                image: new DecorationImage(
                 //  https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg
                 // https://media-exp1.licdn.com/dms/image/C5603AQGs80XgVG-nxg/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=XQSVmNAVycY5cSWSkIWELb9NJ-Cwjx2smaH0nclMmpU
-                     image: new NetworkImage("https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"),
+                     image: CachedNetworkImageProvider("https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"),
                      fit: BoxFit.cover,
                ),
                borderRadius: new BorderRadius.all(
@@ -464,7 +467,7 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
     return Align(
           alignment: FractionalOffset.bottomCenter,
           child: Container(
-        height: 60.0,
+        height: screenHeight/15,
         child: BottomAppBar(
           color: mainColor,
           child: 
@@ -474,55 +477,80 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
                 FlatButton(
                   textColor:Colors.white,
                   onPressed: (){},
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(2.0),
                   child: Column( // Replace with a Row for horizontal icon + text
                   children: <Widget>[
-                    Icon(Icons.home),
-                    Text("Home")
+                    Icon(
+                      Icons.home,
+                        size: 22.0,
+                        ),
+                    Text("Home",
+                        style: TextStyle(fontSize: 12.0),
+                        )
                   ],
                 ),
                 ),
                 FlatButton(
                   textColor:Colors.white,
                   onPressed: (){},
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(2.0),
                   child: Column( // Replace with a Row for horizontal icon + text
                   children: <Widget>[
-                    Icon(Icons.notifications),
-                    Text("Alerts")
-                  ],
-                ),
-                  ),
-                FlatButton(
-                  textColor:Colors.white,
-                  onPressed: (){},
-                  padding: EdgeInsets.all(10.0),
-                  child: Column( // Replace with a Row for horizontal icon + text
-                  children: <Widget>[
-                    Icon(Icons.person),
-                    Text("Profile")
+                    Icon(
+                      Icons.notifications,
+                        size: 22.0,
+                        ),
+                    Text("Alerts",
+                        style: TextStyle(fontSize: 12.0),
+                        )
                   ],
                 ),
                 ),
                 FlatButton(
                   textColor:Colors.white,
                   onPressed: (){},
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(2.0),
                   child: Column( // Replace with a Row for horizontal icon + text
                   children: <Widget>[
-                    Icon(Icons.add),
-                    Text("Add")
+                    Icon(
+                      Icons.person,
+                        size: 22.0,
+                        ),
+                    Text("Profile",
+                        style: TextStyle(fontSize: 12.0),
+                        )
                   ],
                 ),
-                  ),
+                ),
                 FlatButton(
                   textColor:Colors.white,
                   onPressed: (){},
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(2.0),
                   child: Column( // Replace with a Row for horizontal icon + text
                   children: <Widget>[
-                    Icon(Icons.home),
-                    Text("Home")
+                    Icon(
+                      Icons.add,
+                        size: 22.0,
+                        ),
+                    Text("Add",
+                        style: TextStyle(fontSize: 12.0),
+                        )
+                  ],
+                ),
+                ),
+                FlatButton(
+                  textColor:Colors.white,
+                  onPressed: (){},
+                  padding: EdgeInsets.all(2.0),
+                  child: Column( // Replace with a Row for horizontal icon + text
+                  children: <Widget>[
+                    Icon(
+                      Icons.home,
+                        size: 22.0,
+                        ),
+                    Text("Home",
+                        style: TextStyle(fontSize: 12.0),
+                        )
                   ],
                 ),
                 ),
@@ -539,7 +567,7 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
   Widget lotusheader(context){
     return  Container(
       color: mainColor.withOpacity(0.979),
-      height: screenHeight/9.8,
+      height: screenHeight/14,
       child: Padding(
         padding: const EdgeInsets.only(right:8.0,left: 8.0),
         child: Row(
@@ -689,7 +717,7 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
              decoration: new BoxDecoration(
                color: mainColor,
                image: new DecorationImage(
-                     image: new NetworkImage(image),
+                     image: CachedNetworkImageProvider(image),
                      fit: BoxFit.cover,
                ),
                borderRadius: new BorderRadius.all(
@@ -743,7 +771,7 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
              decoration: new BoxDecoration(
                color: mainColor,
                image: new DecorationImage(
-                     image: new NetworkImage("https://media-exp1.licdn.com/dms/image/C5603AQGs80XgVG-nxg/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=XQSVmNAVycY5cSWSkIWELb9NJ-Cwjx2smaH0nclMmpU"),
+                     image: CachedNetworkImageProvider("https://media-exp1.licdn.com/dms/image/C5603AQGs80XgVG-nxg/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=XQSVmNAVycY5cSWSkIWELb9NJ-Cwjx2smaH0nclMmpU"),
                      fit: BoxFit.cover,
                ),
                borderRadius: new BorderRadius.all(
@@ -810,7 +838,7 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
                                   image: DecorationImage(
-                                      image: new NetworkImage(image),
+                                      image: CachedNetworkImageProvider(image),
                                       fit: BoxFit.cover)),
                               
                             ),
@@ -1035,61 +1063,40 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
                                         children:[ 
 
                                           Padding(
-                                            padding: EdgeInsets.only(top: screenHeight/9.5),
+                                            padding: EdgeInsets.only(top: screenHeight/14,bottom: screenHeight/14.5),
                                             child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         physics: ClampingScrollPhysics(),
                                             child:Container(
                           padding: EdgeInsets.all(16.0),
-                          // color: white,
+                          color: white,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Theme(
                       data: Theme.of(context).copyWith(splashColor: Colors.transparent),
-                      child: TextField(
-                        autofocus: false,
-                        style: TextStyle(fontSize: 18.0, color: Colors.black),
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          prefixIcon: Icon(Icons.person,size: 20.0,color: mainColor,),
-                          hintText: 'Username',
-                          // contentPadding:
-                          //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(25.7),
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(25.7),
-                          ),
-                        ),
-                      ),
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Theme(
-                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
-                      child: TextField(
-                        autofocus: false,
-                        style: TextStyle(fontSize: 18.0, color: Colors.black),
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          prefixIcon: Icon(Icons.person,size: 20.0,color: mainColor,),
-                          hintText: 'lastname',
-                          // contentPadding:
-                          //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(25.7),
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(25.7),
+                      child: Material(
+                           elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                          child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.person,size: 20.0,color: mainColor,),
+                            hintText: 'Username',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
                           ),
                         ),
                       ),
@@ -1099,49 +1106,28 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
                 ),
                 Theme(
                       data: Theme.of(context).copyWith(splashColor: Colors.transparent),
-                      child: TextField(
-                        autofocus: false,
-                        style: TextStyle(fontSize: 18.0, color: Colors.black),
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          prefixIcon: Icon(Icons.email,size: 20.0,color: mainColor,),
-                          hintText: 'Email',
-                          // contentPadding:
-                          //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(25.7),
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(25.7),
-                          ),
-                        ),
-                      ),
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Theme(
-                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
-                      child: TextField(
-                        autofocus: false,
-                        style: TextStyle(fontSize: 18.0, color: Colors.black),
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          prefixIcon: Icon(Icons.phone,size: 20.0,color: mainColor,),
-                          hintText: 'Phone',
-                          // contentPadding:
-                          //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(25.7),
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(25.7),
+                      child: Material(
+                        elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                                              child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.person,size: 20.0,color: mainColor,),
+                            hintText: 'lastname',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
                           ),
                         ),
                       ),
@@ -1151,23 +1137,121 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
                 ),
                 Theme(
                       data: Theme.of(context).copyWith(splashColor: Colors.transparent),
-                      child: TextField(
-                        autofocus: false,
-                        style: TextStyle(fontSize: 18.0, color: Colors.black),
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          prefixIcon: Icon(Icons.lock,size: 20.0,color: mainColor,),
-                          hintText: 'Password',
-                          // contentPadding:
-                          //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(25.7),
+                      child: Material(
+                           elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                                              child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.email,size: 20.0,color: mainColor,),
+                            hintText: 'Email',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
                           ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(25.7),
+                        ),
+                      ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: Material(
+                          elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                                              child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.phone,size: 20.0,color: mainColor,),
+                            hintText: 'Phone',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                          ),
+                        ),
+                      ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: Material(
+                           elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                                              child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.lock,size: 20.0,color: mainColor,),
+                            hintText: 'Password',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                          ),
+                        ),
+                      ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: Material(
+                           elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                                              child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.lock,size: 20.0,color: mainColor,),
+                            hintText: 'Confirm Password',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
                           ),
                         ),
                       ),
@@ -1196,23 +1280,22 @@ class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateM
             ),
           ),
           SizedBox(height: 10.0,),
-          FloatingActionButton(
-            onPressed: (){},
-            child: Row(
-              children: <Widget>[
-                  Icon(Icons.done),
-                  Text("Done")
-              ],
-              ),
-            ),
-
-
-          
-          
-
-                
-                
-
+              //  Center(
+              //     child: RaisedButton.icon(
+              //        elevation: 10.0,
+              //        color: mainColor,
+              //        splashColor: coolBlue,
+              //        onPressed: (){
+              //          print("button clicked");
+              //          Navigator.push(
+              //             context,
+              //             MaterialPageRoute(builder: (context) => RegisterStep2()),
+              //           );
+              //        },
+              //        icon: Icon(Icons.navigate_next,color: white,), 
+              //        label: Text("Continue",style: TextStyle(color: white),),
+              //        ),
+              //  ),
                 SizedBox(
                         height: 20,
                 ),

@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sidenav/base/base.dart';
 import 'package:flutter_chips_input/flutter_chips_input.dart';
-import 'package:sidenav/pages/register/register_step_1.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:sidenav/pages/register/register_step_2.dart';
 
-class CommonScaffold extends StatefulWidget {
+class RegisterStep1 extends StatefulWidget {
   @override
-  _CommonScaffoldState createState() => _CommonScaffoldState();
+  _RegisterStep1State createState() => _RegisterStep1State();
 }
 
-class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStateMixin {
+class _RegisterStep1State extends State<RegisterStep1> with TickerProviderStateMixin {
   bool isCollapsed = true;
   bool collapseFromLeft = true;
   double screenWidth,screenHeight;
@@ -163,14 +164,8 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
                  ),
                  Container(
                   height: screenHeight/20,
-    
                   child: FlatButton.icon(
-                     onPressed:() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => RegisterStep1()),
-                        );
-                      }, 
+                     onPressed: (){}, 
                      icon: Icon(FontAwesomeIcons.userPlus,color: Colors.blueAccent,size: 20.0,), 
                      label: Text("Create Account",style: TextStyle(color: white,fontSize: 15.0),)
                      ),
@@ -274,12 +269,13 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
                                             child: new Container(
              width: screenHeight/9,
              height: screenHeight/9,
+             
              decoration: new BoxDecoration(
                color: mainColor,
                image: new DecorationImage(
                 //  https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg
                 // https://media-exp1.licdn.com/dms/image/C5603AQGs80XgVG-nxg/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=XQSVmNAVycY5cSWSkIWELb9NJ-Cwjx2smaH0nclMmpU
-                     image: new NetworkImage("https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"),
+                     image: CachedNetworkImageProvider("https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/12.jpg"),
                      fit: BoxFit.cover,
                ),
                borderRadius: new BorderRadius.all(
@@ -323,7 +319,7 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
                   ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center, 
+                mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Icon(Icons.star,color: Colors.purpleAccent,size: 18.0,),
                             Icon(Icons.star,color: Colors.purpleAccent,size: 18.0,),
@@ -647,19 +643,10 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children:[
-                        Row(
-                          children: <Widget>[
-                            Text(
-                              name,
-                              style: TextStyle(fontWeight: FontWeight.bold,color:white),
-                              ),
-                              SizedBox(
-                                width:10.0
-                              ),
-                              Text("4.5",style: TextStyle(color: white),),
-                              Icon(Icons.star,color: Colors.purpleAccent,size: 16.5,),
-                          ],
-                        ),
+                        Text(
+                          "John Doe",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                         Icon(FontAwesomeIcons.ellipsisV,color: Colors.white,size: 15.0,)
                       ])
                     ),
@@ -675,19 +662,6 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
                           ),
                         SizedBox(width: 5.0,),
                         Text("johndoe@gmail.com",style: TextStyle(color: Colors.black),),
-                        SizedBox(
-                          width: 28.0,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top:5.0,left: 7.0),
-                          child: FloatingActionButton(
-                            heroTag: "btn3",
-                            backgroundColor: mainColor,
-                            onPressed: (){},
-                            elevation: 0.0,
-                            child: Icon(Icons.phone,size: 16.0,)
-                            ),
-                        )
                       ])
                     ),
                     Container(
@@ -696,26 +670,26 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children:[
-                        // Row(
-                        //   children: <Widget>[
-                        //     Icon(Icons.star,color: Colors.purpleAccent,),
-                        //     Icon(Icons.star,color: Colors.purpleAccent,),
-                        //     Icon(Icons.star,color: Colors.purpleAccent,),
-                        //     Icon(Icons.star,color: Colors.purpleAccent,),
-                        //     Icon(Icons.star,color: Colors.purpleAccent,),
-                        //     Text("5.0",style: TextStyle(color: Colors.black),),
-                        //   ],
-                        // ),
-                        // Padding(
-                        //   padding: const EdgeInsets.all(2.0),
-                        //   child: FloatingActionButton(
-                        //     heroTag: "btn3",
-                        //     backgroundColor: mainColor,
-                        //     onPressed: (){},
-                        //     elevation: 0.0,
-                        //     child: Icon(Icons.phone,size: 18.0,)
-                        //     ),
-                        // )
+                        Row(
+                          children: <Widget>[
+                            Icon(Icons.star,color: Colors.purpleAccent,),
+                            Icon(Icons.star,color: Colors.purpleAccent,),
+                            Icon(Icons.star,color: Colors.purpleAccent,),
+                            Icon(Icons.star,color: Colors.purpleAccent,),
+                            Icon(Icons.star,color: Colors.purpleAccent,),
+                            Text("5.0",style: TextStyle(color: Colors.black),),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: FloatingActionButton(
+                            heroTag: "btn3",
+                            backgroundColor: mainColor,
+                            onPressed: (){},
+                            elevation: 0.0,
+                            child: Icon(Icons.phone,size: 18.0,)
+                            ),
+                        )
                         
                       ])
                     ),
@@ -743,7 +717,7 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
              decoration: new BoxDecoration(
                color: mainColor,
                image: new DecorationImage(
-                     image: new NetworkImage(image),
+                     image: CachedNetworkImageProvider(image),
                      fit: BoxFit.cover,
                ),
                borderRadius: new BorderRadius.all(
@@ -797,7 +771,7 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
              decoration: new BoxDecoration(
                color: mainColor,
                image: new DecorationImage(
-                     image: new NetworkImage("https://media-exp1.licdn.com/dms/image/C5603AQGs80XgVG-nxg/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=XQSVmNAVycY5cSWSkIWELb9NJ-Cwjx2smaH0nclMmpU"),
+                     image: CachedNetworkImageProvider("https://media-exp1.licdn.com/dms/image/C5603AQGs80XgVG-nxg/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=XQSVmNAVycY5cSWSkIWELb9NJ-Cwjx2smaH0nclMmpU"),
                      fit: BoxFit.cover,
                ),
                borderRadius: new BorderRadius.all(
@@ -822,7 +796,7 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
       );
   }
 
-  Widget lotuscard(context,image,name,type,location,rating){
+  Widget lotuscard(context,image,name){
 
     return Container(
       margin: EdgeInsets.only(bottom:13),
@@ -839,145 +813,111 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  width: screenWidth-10,
-                  height:screenHeight/2.58,
-                  child: Stack(
-                                      children:[ 
-                                        Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Stack(
-                          children: <Widget>[
-                            Container(
-                                width: screenWidth-10,
-                                height:screenHeight/3.3,
-                                decoration: BoxDecoration(
-                                   // borderRadius: BorderRadius.circular(10.0),
-                                    image: DecorationImage(
-                                        image: new NetworkImage(image),
-                                        fit: BoxFit.cover)),
-                                
-                              ),
-                            Container(
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-
-                                  Container(
-                                height: 30.0,
-                                margin: EdgeInsets.only(left:10.0),
-                                child: Chip(
-                                  //backgroundColor: Colors.white.withOpacity(0.9),
-                                  elevation: 0.0,
-                                  //avatar: Icon(Icons.location_on,size: 15.0,),
-                                  label: Text(location)
-                                  ),
-
-                              ),
-                                IconButton(
-                                   color: Colors.white.withOpacity(0.6),
-                                   icon: Icon(Icons.favorite,color: Colors.pink),
-                                   onPressed: (){})
-                                // FlatButton.icon(
-                                //   onPressed: (){},
-                                //   color: Colors.white.withOpacity(0.6),
-                                //   icon: Icon(Icons.favorite,color: Colors.pink), 
-                                //   label: Text("")
-                                //   )
-                                
-                                ],
-                              ),
+                  width: screenWidth-40,
+                  height:screenHeight/3,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      // Center(
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.all(8.0),
+                      //     child: Text(
+                      //       "Venue",
+                      //       style: TextStyle(
+                      //         color: Colors.black,
+                      //         fontSize:  12.0,
+                      //       ),
+                      //     ),    
+                      //   ),
+                      // ),
+                      Stack(
+                        children: <Widget>[
+                          Container(
+                              width: screenWidth-40,
+                              height:screenHeight/4,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  image: DecorationImage(
+                                      image: CachedNetworkImageProvider(image),
+                                      fit: BoxFit.cover)),
+                              
                             ),
+                          Container(
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                              
+                              FlatButton.icon(
+                                onPressed: (){},
+                                color: Colors.white,
+                                icon: Icon(Icons.star,color: Colors.yellow,), 
+                                label: Text("4.5")
+                                )
+                              ,
+                              FlatButton.icon(
+                                onPressed: (){},
+                                color: Colors.white,
+                                icon: Icon(Icons.favorite,color: Colors.pink), 
+                                label: Text("16")
+                                )
+                              
+                              ],
+                            ),
+                          ),
 
-                          ],
-                        ),
-                        SizedBox(
-                          height: 8.0,
-                        ),
-                        Row(
+                        ],
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Column(
+                           mainAxisAlignment: MainAxisAlignment.start,
+                           mainAxisSize: MainAxisSize.max,
+                           children: <Widget>[
+                                    Container(
+                                      width: screenWidth-110,
+                                      child: Row(
+                        children:[
+                          Icon(Icons.restaurant,color: Colors.brown,),
+                          Text(
+                            name,
+                            style:TextStyle(fontWeight: FontWeight.bold))
+                        ]
+                      ),
+                                    ),
+                      Container(
+                        width: screenWidth-110,
+                        child: Row(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Column(
-                             mainAxisAlignment: MainAxisAlignment.start,
-                             mainAxisSize: MainAxisSize.max,
-                             children: <Widget>[
-                                      Container(
-                                        width: screenWidth-110,
-                                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children:[
-                            //Icon(Icons.restaurant,color: Colors.brown,),
-                            SizedBox(
-                              width: 10.0,
-                            ),
+                            Icon(Icons.location_on,color: Colors.blueAccent,),
                             Text(
-                              name,
+                              "Round the Corner Vastapur",
                               style:TextStyle(fontWeight: FontWeight.bold))
                           ]
                         ),
-                                      ),
-                        Container(
-                          width: screenWidth-110,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children:[
-                            Container(
-                                //width: screenWidth-110,
-                                padding: EdgeInsets.only(left:11.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children:[
-                                    
-                                    Text(rating),
-                                    Icon(Icons.star,color: mainColor,size: 16.5,),
-                                  ]
-                                ),
-                              ),
-                             // Icon(Icons.accessibility,color: Colors.purpleAccent,),
-                             SizedBox(
-                              width: 4.0,
-                            ),
-                              Text(
-                                type,
-                                style:TextStyle(
-                                   fontWeight: FontWeight.bold,
-                                   color: Colors.black54
-                                   )
-                              )
-                            ]
+                      ),
+                           ],
                           ),
-                        ),
-                        
-
-                        
-                             ],
-                            ),
-                            
-                            
-                          ],
-                        ),
-
-                        
-
-                        
-
-                        
-
-                        
-
-                      ],
-                    ),
-                    Container(
-                            margin: EdgeInsets.only(top:screenHeight/3.65,left: screenWidth/1.3),
+                          
+                          Container(
                             height: screenHeight/15,
                             child: FloatingActionButton(
-                              heroTag: "btn5",
                               elevation: 0.0,
                               onPressed: (){},child:Icon(Icons.bubble_chart,color: Colors.white,)))
-                                      ]
+                        ],
+                      ),
+
+                      
+
+                      
+
+                      
+
+                    ],
                   ),
                 ),
                 
@@ -1037,8 +977,6 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
     //                           child: Column(
     //                             mainAxisAlignment: MainAxisAlignment.start,
     //                             children: <Widget>[
-
-
     //                               Row(
     //                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
     //                                 children: <Widget>[
@@ -1121,81 +1059,278 @@ class _CommonScaffoldState extends State<CommonScaffold> with TickerProviderStat
         elevation: 8.0,
         color: mainColor,
         child: SafeArea(
-                    child: Stack(
-                                          children:[ 
+                  child: Stack(
+                                        children:[ 
 
-                                            Padding(
-                      padding: EdgeInsets.only(top: screenHeight/14),
-                      child: SingleChildScrollView(
-                          scrollDirection: Axis.vertical,
-                          physics: ClampingScrollPhysics(),
-                      child: Container(
-                            color:white,
-                            padding: EdgeInsets.only(left:4,right:4,top:0.0),
-                            child: Column(
+                                          Padding(
+                                            padding: EdgeInsets.only(top: screenHeight/14,bottom: screenHeight/14.5),
+                                            child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        physics: ClampingScrollPhysics(),
+                                            child:Container(
+                          padding: EdgeInsets.all(16.0),
+                          color: white,
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                
-                lotuscard(context,"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500","Round the Corner Vastapur","Hotel","London","4.5"),
-                lotuscard(context,"https://www.herbusiness.co.ke/wp-content/uploads/2017/10/Wholesale-and-Retail-Sestor-in-Kenya-800x548.jpg","Naivas Supermarket","Venue","Nairobi","4.0"),
-                // lotuscard(context,"https://images.all-free-download.com/images/graphicthumb/food_picture_03_hd_pictures_167556.jpg","Chicken"),
-                // lotuscard(context,"https://cdn.guidingtech.com/imager/assets/189867/HD-Mouth-Watering-Food-Wallpapers-for-Desktop-10_4d470f76dc99e18ad75087b1b8410ea9.jpg?1573743473","Seafood"),
-                // lotuscard(context,"https://i.pinimg.com/originals/a2/c5/ab/a2c5ab8f37a99b3ce16cc0921ec8ac50.jpg","Burger"),
-                // lotuscard(context,"https://i.pinimg.com/originals/a2/c5/ab/a2c5ab8f37a99b3ce16cc0921ec8ac50.jpg","Cake"),
-                lotususercard(context,"https://i.pinimg.com/originals/a2/c5/ab/a2c5ab8f37a99b3ce16cc0921ec8ac50.jpg","John Doe"),
-                Row(
-                    children: <Widget>[
-                        lotususerchip(context),
-                        SizedBox(width: 9.0,),
-                        lotuscolorchip(context, mainColor, "Confirmed"),
-                        SizedBox(width: 9.0,),
-                        lotuscolorchip(context, Colors.red, "Pending"),
-                        SizedBox(width: 9.0,),
-                        lotuscolorchip(context, coolBlue, "View"),
-                        
-
-                    ],
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: Material(
+                           elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                          child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.person,size: 20.0,color: mainColor,),
+                            hintText: 'Username',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                          ),
+                        ),
+                      ),
                 ),
-                SizedBox(height: 10.0,),
-
-                
-                
-
                 SizedBox(
-                          height: 20,
+                  height: 10.0,
                 ),
-                Text("Menu Items",style: TextStyle(color: Colors.white,fontSize: 20),),
-                ListView.separated(
-                 physics: NeverScrollableScrollPhysics(),
-                 shrinkWrap: true,
-                          itemBuilder: (context,index){
-                          return ListTile(
-                            title: Text("Cream Roll"),
-                            subtitle: Text("booking"),
-                            trailing: Text("200"),
-                          );
-                }, 
-                separatorBuilder: (context,index){
-                           return Divider(height: 16);
-                },
-                 itemCount: 10
-                )
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: Material(
+                        elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                                              child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.person,size: 20.0,color: mainColor,),
+                            hintText: 'lastname',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                          ),
+                        ),
+                      ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: Material(
+                           elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                                              child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.email,size: 20.0,color: mainColor,),
+                            hintText: 'Email',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                          ),
+                        ),
+                      ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: Material(
+                          elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                                              child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.phone,size: 20.0,color: mainColor,),
+                            hintText: 'Phone',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                          ),
+                        ),
+                      ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: Material(
+                           elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                                              child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.lock,size: 20.0,color: mainColor,),
+                            hintText: 'Password',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                          ),
+                        ),
+                      ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Theme(
+                      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+                      child: Material(
+                           elevation: 10.0,
+                           shadowColor: shadowBlue,
+                           borderRadius: BorderRadius.circular(25.7),
+                                              child: TextField(
+                          autofocus: false,
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.black12,
+                            prefixIcon: Icon(Icons.lock,size: 20.0,color: mainColor,),
+                            hintText: 'Confirm Password',
+                            // contentPadding:
+                            //     const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(25.7),
+                            ),
+                          ),
+                        ),
+                      ),
+                ),
+
+                SizedBox(height: 10.0,),
+                Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: Container(
+              width: screenWidth/1.3,
+              child: Row(
+                children: <Widget>[
+                  Checkbox(
+                    value:true
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      'I agree to the Terms of Services',
+                      overflow: TextOverflow.ellipsis,
+    maxLines: 5,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 10.0,),
+               Center(
+                  child: RaisedButton.icon(
+                     elevation: 10.0,
+                     color: mainColor,
+                     splashColor: coolBlue,
+                     onPressed: (){
+                       print("button clicked");
+                       Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => RegisterStep2()),
+                        );
+                     },
+                     icon: Icon(Icons.navigate_next,color: white,), 
+                     label: Text("Continue",style: TextStyle(color: white),),
+                     ),
+               ),
+                SizedBox(
+                        height: 20,
+                ),
+                // Text("Menu Items",style: TextStyle(color: Colors.white,fontSize: 20),),
+                // ListView.separated(
+                //  physics: NeverScrollableScrollPhysics(),
+                //  shrinkWrap: true,
+                //         itemBuilder: (context,index){
+                //         return ListTile(
+                //           title: Text("Cream Roll"),
+                //           subtitle: Text("booking"),
+                //           trailing: Text("200"),
+                //         );
+                // }, 
+                // separatorBuilder: (context,index){
+                //          return Divider(height: 16);
+                // },
+                //  itemCount: 10
+                // )
 
                
 
               ],
               ),
-                          ),
                         ),
-                                            ),
-                                             lotusheader(context),
-                                             lotusbottom(context)
-                                          ]
                     ),
+                                          ),
+                                           lotusheader(context),
+                                           lotusbottom(context)
+                                        ]
                   ),
         ),
 
       ),
+          ),
     );
 
   }
